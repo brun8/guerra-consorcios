@@ -71,3 +71,10 @@ model VerificationToken {
 
     @@unique([identifier, token])
 }
+
+model ContactMessage {
+    id      String @id @default(cuid())
+    sender  String
+    email   String
+    message String
+}
