@@ -1,6 +1,7 @@
 import Head from "next/head";
 
 import { ContactForm } from "@/components/contactForm";
+import { Navbar } from "@/components/navbar";
 
 
 export default function Home() {
@@ -12,6 +13,7 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main className="flex flex-col ">
+        <Navbar />
         <section className="min-h-screen">
         </section>
         <section className="flex min-h-screen items-center">
