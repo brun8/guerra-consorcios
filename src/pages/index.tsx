@@ -7,7 +7,7 @@ export default function Home() {
   return (
     <>
       <Head>
-        <title></title>
+        <title>Guerra consórcios</title>
         <meta name="description" content="" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
