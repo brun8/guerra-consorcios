@@ -14,7 +14,7 @@ export const contactRouter = createTRPCRouter({
       message: z.string().min(1),
     }))
     .mutation(({ ctx, input }) => {
-      ctx.db.contactMessage.create({
+      return ctx.db.contactMessage.create({
         data: {
           sender: input.sender,
           email: input.email,

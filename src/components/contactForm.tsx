@@ -1,4 +1,4 @@
-import { SyntheticEvent, useRef } from "react";
+import { type SyntheticEvent, useRef } from "react";
 import { z } from "zod";
 import toast from "react-hot-toast";
 
@@ -26,9 +26,9 @@ export function ContactForm() {
 
     // faz a validação dos valores dos campos sem throw de erro
     const res = messageSchema.safeParse({
-      sender: nameRef.current?.value || "",
-      email: emailRef.current?.value || "",
-      message: messageRef.current?.value || "",
+      sender: nameRef.current?.value ?? "",
+      email: emailRef.current?.value ?? "",
+      message: messageRef.current?.value ?? "",
     })
 
     if (res.success) {

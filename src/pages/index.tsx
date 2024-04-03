@@ -2,8 +2,8 @@ import Head from "next/head";
 
 import { ContactForm } from "@/components/contactForm";
 
-export default function Home() {
 
+export default function Home() {
   return (
     <>
       <Head>
