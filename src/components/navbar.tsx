@@ -19,8 +19,14 @@ export function Navbar() {
           </Link>
         </div>
         <div className="flex gap-16 font-semibold leading-6 text-sm items-center">
-          <p className="">
-            <Link href="veiculos">Veículos</Link>
+          <p>
+            <Link href="carros">Carros</Link>
+          </p>
+          <p>
+            <Link href="motos">Motos</Link>
+          </p>
+          <p>
+            <Link href="caminhoes">Caminhões</Link>
           </p>
           <Link href="login">
             <Button>
