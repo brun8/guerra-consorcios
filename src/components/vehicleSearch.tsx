@@ -182,9 +182,10 @@ export function VehicleSearch({ type }: VehicleSearchProps) {
         }
 
         {allSelected &&
-          <Button variant="outline"
+          <Button
             disabled={fetchingPrice}
             onClick={submitSearch}
+            className="bg-indigo-500 w-full max-w-64 mx-auto"
           >
             {fetchingPrice && <Spinner />}
             {!fetchingPrice && "Buscar"}
