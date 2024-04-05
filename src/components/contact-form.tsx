@@ -53,7 +53,7 @@ export function ContactForm() {
       <Textarea placeholder="Mensagem" ref={messageRef} />
       <Button
         type="submit"
-        className="w-32 bg-indigo-400"
+        className="w-32 bg-indigo-400 hover:bg-indigo-300"
         disabled={isPending}
       >
         {isPending && <span className="text-black"><Spinner /></span>}

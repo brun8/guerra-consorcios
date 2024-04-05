@@ -4,7 +4,7 @@ import { ResponsiveNavbar } from "./responsive-navbar";
 
 
 type LayoutProps = {
-  children: ReactNode
+  children?: ReactNode
 }
 
 export function Layout({ children }: LayoutProps) {

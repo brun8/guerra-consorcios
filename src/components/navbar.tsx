@@ -29,7 +29,7 @@ export function Navbar() {
             <Link href="caminhoes">Caminhões</Link>
           </p>
           <Link href="login">
-            <Button className="bg-indigo-500">
+            <Button className="bg-indigo-400 hover:bg-indigo-300">
               Entrar
             </Button>
           </Link>

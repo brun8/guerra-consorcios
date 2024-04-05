@@ -28,14 +28,15 @@ npm run dev
 - [x] buscar carros
 - [x] buscar motos
 - [x] buscar caminhoes
-- [ ] responsividade
-- [ ] conectar sqlite com instancia externa (turso)
-- [ ] login
+- [x] responsividade
+- [x] conectar sqlite com instancia externa (turso)
 - [ ] cadastrar veiculos para venda
-- [ ] backoffice de mensagens (ver e deletar)
-- [ ] backoffice de veículos a venda (ver e deletar)
+- [ ] tabela com veiculos para venda
 
 se der tempo
+- [ ] login
+- [ ] backoffice de veículos a venda (ver e deletar)
+- [ ] backoffice de mensagens (ver e deletar)
 - [ ] footer
 - [ ] light mode
 - [ ] usar react query pra cache das requisições da tabela fipe

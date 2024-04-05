@@ -179,7 +179,7 @@ export function VehicleSearch({ type }: VehicleSearchProps) {
         <Button
           disabled={fetchingPrice}
           onClick={submitSearch}
-          className="bg-indigo-500 w-full max-w-64 mx-auto"
+          className="bg-indigo-400 hover:bg-indigo-300 w-full max-w-64 mx-auto"
         >
           {fetchingPrice && <Spinner />}
           {!fetchingPrice && "Buscar"}
