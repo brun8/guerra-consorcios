@@ -43,7 +43,7 @@ export default function Home() {
             </div>
 
             <div className="flex-1 hidden md:block">
-              <Image src={logo} alt="Grupo Guerra" />
+              <Image src={logo} alt="Grupo Guerra" priority />
             </div>
 
           </div>
