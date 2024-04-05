@@ -45,7 +45,7 @@ export function ContactForm() {
 
   return (
     <form
-      className="w-4/6 max-w-xl flex flex-col gap-4 items-center"
+      className="w-full flex flex-col gap-4 items-center mx-auto"
       onSubmit={onMessageSend}
     >
       <Input placeholder="Nome" ref={nameRef} />
@@ -53,7 +53,7 @@ export function ContactForm() {
       <Textarea placeholder="Mensagem" ref={messageRef} />
       <Button
         type="submit"
-        className="w-32"
+        className="w-32 bg-indigo-400"
         disabled={isPending}
       >
         {isPending && <span className="text-black"><Spinner /></span>}

@@ -36,6 +36,7 @@ npm run dev
 - [ ] backoffice de veículos a venda (ver e deletar)
 
 se der tempo
+- [ ] footer
 - [ ] light mode
 - [ ] usar react query pra cache das requisições da tabela fipe
 

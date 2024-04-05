@@ -7,7 +7,7 @@ import { fetchVehicleBrands, fetchVehicleModels, fetchVehicleValue, normalizeTyp
 import { Spinner } from "@/components/spinner";
 import { Button } from "@/components/ui/button";
 import { type BrandInfo, type BaseFipeResponse } from "@/types/fipe";
-import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "./ui/card";
+import { VehicleCard } from "./vehicle-card";
 
 
 type VehicleSearchProps = {
@@ -188,54 +188,7 @@ export function VehicleSearch({ type }: VehicleSearchProps) {
       }
 
       {result &&
-        <Card className="w-[380px] mx-auto">
-          <CardHeader>
-            <CardTitle>{result.Modelo}</CardTitle>
-            <CardDescription>{result.Marca}</CardDescription>
-          </CardHeader>
-          <CardContent className="grid gap-4">
-
-            <div className=" flex items-center space-x-4 rounded-md border p-4">
-              <div className="flex-1">
-                <p className="text-sm text-muted-foreground">
-                  Marca: <span className="font-bold">{result.Marca}</span>
-                </p>
-              </div>
-            </div>
-            <div className=" flex items-center space-x-4 rounded-md border p-4">
-              <div className="flex-1">
-                <p className="text-sm text-muted-foreground">
-                  Ano: <span className="font-bold">{result.AnoModelo}</span>
-                </p>
-              </div>
-            </div>
-            <div className=" flex items-center space-x-4 rounded-md border p-4">
-              <div className="flex-1">
-                <p className="text-sm text-muted-foreground">
-                  Combustível: <span className="font-bold">{result.Combustivel}</span>
-                </p>
-              </div>
-            </div>
-            <div className=" flex items-center space-x-4 rounded-md border p-4">
-              <div className="flex-1">
-                <p className="text-sm text-muted-foreground">
-                  Código Fipe: <span className="font-bold">{result.CodigoFipe}</span>
-                </p>
-              </div>
-            </div>
-
-          </CardContent>
-          <CardFooter>
-            <div className="mx-auto text-center">
-              <h3 className="text-2xl">
-                Valor: {" "}
-                <span className="font-bold">
-                  {result.Valor}
-                </span>
-              </h3>
-            </div>
-          </CardFooter>
-        </Card>
+        <VehicleCard vehicle={result} />
       }
     </div>
   )

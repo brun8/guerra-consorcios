@@ -1,13 +1,12 @@
-import { Navbar } from "@/components/navbar";
+import { Layout } from "@/components/layout";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { VehicleSearch } from "@/components/vehicleSearch";
+import { VehicleSearch } from "@/components/vehicle-search";
 
 
 export default function CarsPage() {
   return (
-    <main className="min-h-screen space-y-6 pb-6">
-      <Navbar />
-      <div className="flex justify-center">
+    <Layout>
+      <div className="mt-8 flex justify-center pb-6">
         <Tabs defaultValue="search" className="w-full flex flex-col gap-4">
           <TabsList className="mx-auto">
             <TabsTrigger value="search">Buscar e vender</TabsTrigger>
@@ -20,8 +19,8 @@ export default function CarsPage() {
           <TabsContent value="market"></TabsContent>
         </Tabs>
       </div>
+    </Layout>
 
-    </main >
   )
 }
 

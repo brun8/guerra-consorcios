@@ -7,7 +7,7 @@ import { Button } from "@/components/ui/button";
 
 export function Navbar() {
   return (
-    <nav className="h-16 border-slate-300/15 border-b">
+    <nav className="h-16 border-slate-300/15 border-b hidden md:block">
       <div className="h-full flex items-center xl:max-w-5xl lg:max-w-xl mx-auto">
         <div className="flex-1 pl-4">
           <Link href="/">

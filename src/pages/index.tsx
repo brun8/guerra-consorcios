@@ -1,8 +1,10 @@
 import Head from "next/head";
+import Image from "next/image";
 
-import { ContactForm } from "@/components/contactForm";
-import { Navbar } from "@/components/navbar";
+import { ContactForm } from "@/components/contact-form";
+import { Layout } from "@/components/layout";
 
+import logo from "/public/images/Prancheta_2GUERRAGRUPO.png"
 
 export default function Home() {
   return (
@@ -12,22 +14,22 @@ export default function Home() {
         <meta name="description" content="" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <main className="flex flex-col ">
-        <Navbar />
-        <section className="min-h-screen">
-        </section>
-        <section className="flex min-h-screen items-center">
-          <div className="flex-1 flex gap-28 max-w-7xl mx-auto">
-            <div className="hidden xl:flex flex-col gap-6">
-              <h2 className="text-5xl font-bold">Entre em contato</h2>
-              <p className="text-xl">
-                {/* TODO: algum texto aqui */}
-              </p>
+      <Layout>
+        <div className="flex-1 flex flex-col md:flex-row items-center">
+          <div className="hidden md:flex flex-1 items-center justify-center w-hull h-full p-20">
+            <Image src={logo} alt="Grupo Guerra" />
+          </div>
+          <div className="md:px-24 flex-1 mx-auto w-4/6 max-w-5xl flex flex-col justify-center items-center gap-6 text-center">
+            <div className="flex md:hidden p-8">
+              <Image src={logo} alt="Grupo Guerra" />
             </div>
+            <h2 className="text-2xl md:text-4xl font-bold">
+              Entre em contato
+            </h2>
             <ContactForm />
           </div>
-        </section>
-      </main >
+        </div>
+      </Layout>
     </>
   );
 }
