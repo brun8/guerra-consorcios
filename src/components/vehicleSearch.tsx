@@ -71,7 +71,7 @@ export function VehicleSearch({ type }: VehicleSearchProps) {
         toast.error("Erro ao buscar modelos.")
       })
       .finally(() => setFetchingModels(false))
-  }, [selectedBrand])
+  }, [type, selectedBrand])
 
   function submitSearch() {
     if (!(selectedBrand && selectedModel && selectedYear)) {
@@ -104,146 +104,139 @@ export function VehicleSearch({ type }: VehicleSearchProps) {
   }
 
   return (
-    <div
-      className="
-          flex flex-col xl:max-w-4xl mx-auto items-center justify-center
-        "
-    >
-      <div className="flex flex-col max-w-xl w-5/6 gap-6">
+    <div className="flex flex-col max-w-xl w-5/6 gap-6 mx-auto">
+      <Select onValueChange={selectBrandAndClear} value={selectedBrand}>
+        <SelectTrigger className="">
+          <SelectValue placeholder="Marca" />
+        </SelectTrigger>
+        <SelectContent>
+          {fetchingBrands &&
+            <div className="w-full flex items-center py-1">
+              <span className="mx-auto">
+                <Spinner />
+              </span>
+            </div>
+          }
+          {!fetchingBrands &&
+            brands.map((brand) => (
+              <SelectItem key={brand.codigo} value={brand.codigo}>
+                {brand.nome}
+              </SelectItem>
+            ))
+          }
+        </SelectContent>
+      </Select>
 
-        <Select onValueChange={selectBrandAndClear} value={selectedBrand}>
+      {selectedBrand &&
+        <Select onValueChange={setSelectedModel} value={selectedModel}>
           <SelectTrigger className="">
-            <SelectValue placeholder="Marca" />
+            <SelectValue placeholder="Modelo" />
           </SelectTrigger>
           <SelectContent>
-            {fetchingBrands &&
+            {fetchingModels &&
               <div className="w-full flex items-center py-1">
                 <span className="mx-auto">
                   <Spinner />
                 </span>
               </div>
             }
-            {!fetchingBrands &&
-              brands.map((brand) => (
-                <SelectItem key={brand.codigo} value={brand.codigo}>
-                  {brand.nome}
+            {!fetchingModels &&
+              models.map((car) => (
+                <SelectItem key={car.codigo} value={car.codigo}>
+                  {car.nome}
                 </SelectItem>
               ))
             }
           </SelectContent>
         </Select>
+      }
 
-        {selectedBrand &&
-          <Select onValueChange={setSelectedModel} value={selectedModel}>
-            <SelectTrigger className="">
-              <SelectValue placeholder="Modelo" />
-            </SelectTrigger>
-            <SelectContent>
-              {fetchingModels &&
-                <div className="w-full flex items-center py-1">
-                  <span className="mx-auto">
-                    <Spinner />
-                  </span>
-                </div>
-              }
-              {!fetchingModels &&
-                models.map((car) => (
-                  <SelectItem key={car.codigo} value={car.codigo}>
-                    {car.nome}
-                  </SelectItem>
-                ))
-              }
-            </SelectContent>
-          </Select>
-        }
-
-        {selectedBrand &&
-          <Select onValueChange={setSelectedYear} value={selectedYear}>
-            <SelectTrigger className="">
-              <SelectValue placeholder="Ano" />
-            </SelectTrigger>
-            <SelectContent>
-              {fetchingModels &&
-                <div className="w-full flex items-center py-1">
-                  <span className="mx-auto">
-                    <Spinner />
-                  </span>
-                </div>
-              }
-              {!fetchingModels &&
-                years.map((year) => (
-                  <SelectItem key={year.codigo} value={year.codigo}>
-                    {year.nome}
-                  </SelectItem>
-                ))
-              }
-            </SelectContent>
-          </Select>
-        }
-
-        {allSelected &&
-          <Button
-            disabled={fetchingPrice}
-            onClick={submitSearch}
-            className="bg-indigo-500 w-full max-w-64 mx-auto"
-          >
-            {fetchingPrice && <Spinner />}
-            {!fetchingPrice && "Buscar"}
-
-          </Button>
-        }
-
-        {result &&
-          <Card className="w-[380px] mx-auto">
-            <CardHeader>
-              <CardTitle>{result.Modelo}</CardTitle>
-              <CardDescription>{result.Marca}</CardDescription>
-            </CardHeader>
-            <CardContent className="grid gap-4">
-
-              <div className=" flex items-center space-x-4 rounded-md border p-4">
-                <div className="flex-1">
-                  <p className="text-sm text-muted-foreground">
-                    Marca: <span className="font-bold">{result.Marca}</span>
-                  </p>
-                </div>
+      {selectedBrand &&
+        <Select onValueChange={setSelectedYear} value={selectedYear}>
+          <SelectTrigger className="">
+            <SelectValue placeholder="Ano" />
+          </SelectTrigger>
+          <SelectContent>
+            {fetchingModels &&
+              <div className="w-full flex items-center py-1">
+                <span className="mx-auto">
+                  <Spinner />
+                </span>
               </div>
-              <div className=" flex items-center space-x-4 rounded-md border p-4">
-                <div className="flex-1">
-                  <p className="text-sm text-muted-foreground">
-                    Ano: <span className="font-bold">{result.AnoModelo}</span>
-                  </p>
-                </div>
-              </div>
-              <div className=" flex items-center space-x-4 rounded-md border p-4">
-                <div className="flex-1">
-                  <p className="text-sm text-muted-foreground">
-                    Combustível: <span className="font-bold">{result.Combustivel}</span>
-                  </p>
-                </div>
-              </div>
-              <div className=" flex items-center space-x-4 rounded-md border p-4">
-                <div className="flex-1">
-                  <p className="text-sm text-muted-foreground">
-                    Código Fipe: <span className="font-bold">{result.CodigoFipe}</span>
-                  </p>
-                </div>
-              </div>
+            }
+            {!fetchingModels &&
+              years.map((year) => (
+                <SelectItem key={year.codigo} value={year.codigo}>
+                  {year.nome}
+                </SelectItem>
+              ))
+            }
+          </SelectContent>
+        </Select>
+      }
 
-            </CardContent>
-            <CardFooter>
-              <div className="mx-auto text-center">
-                <h3 className="text-2xl">
-                  Valor: {" "}
-                  <span className="font-bold">
-                    {result.Valor}
-                  </span>
-                </h3>
+      {allSelected &&
+        <Button
+          disabled={fetchingPrice}
+          onClick={submitSearch}
+          className="bg-indigo-500 w-full max-w-64 mx-auto"
+        >
+          {fetchingPrice && <Spinner />}
+          {!fetchingPrice && "Buscar"}
+
+        </Button>
+      }
+
+      {result &&
+        <Card className="w-[380px] mx-auto">
+          <CardHeader>
+            <CardTitle>{result.Modelo}</CardTitle>
+            <CardDescription>{result.Marca}</CardDescription>
+          </CardHeader>
+          <CardContent className="grid gap-4">
+
+            <div className=" flex items-center space-x-4 rounded-md border p-4">
+              <div className="flex-1">
+                <p className="text-sm text-muted-foreground">
+                  Marca: <span className="font-bold">{result.Marca}</span>
+                </p>
               </div>
-            </CardFooter>
-          </Card>
-        }
-      </div>
+            </div>
+            <div className=" flex items-center space-x-4 rounded-md border p-4">
+              <div className="flex-1">
+                <p className="text-sm text-muted-foreground">
+                  Ano: <span className="font-bold">{result.AnoModelo}</span>
+                </p>
+              </div>
+            </div>
+            <div className=" flex items-center space-x-4 rounded-md border p-4">
+              <div className="flex-1">
+                <p className="text-sm text-muted-foreground">
+                  Combustível: <span className="font-bold">{result.Combustivel}</span>
+                </p>
+              </div>
+            </div>
+            <div className=" flex items-center space-x-4 rounded-md border p-4">
+              <div className="flex-1">
+                <p className="text-sm text-muted-foreground">
+                  Código Fipe: <span className="font-bold">{result.CodigoFipe}</span>
+                </p>
+              </div>
+            </div>
+
+          </CardContent>
+          <CardFooter>
+            <div className="mx-auto text-center">
+              <h3 className="text-2xl">
+                Valor: {" "}
+                <span className="font-bold">
+                  {result.Valor}
+                </span>
+              </h3>
+            </div>
+          </CardFooter>
+        </Card>
+      }
     </div>
   )
 }
