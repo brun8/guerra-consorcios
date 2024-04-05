@@ -17,7 +17,7 @@ export default function Home() {
       <Layout>
         <div className="flex-1 flex flex-col md:flex-row items-center">
           <div className="hidden md:flex flex-1 items-center justify-center w-hull h-full p-20">
-            <Image src={logo} alt="Grupo Guerra" />
+            <Image src={logo} alt="Grupo Guerra" priority />
           </div>
           <div className="md:px-24 flex-1 mx-auto w-4/6 max-w-5xl flex flex-col justify-center items-center gap-6 text-center">
             <div className="flex md:hidden p-8">
