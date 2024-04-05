@@ -28,9 +28,10 @@ npm run dev
 - [x] buscar carros
 - [x] buscar motos
 - [x] buscar caminhoes
-- [ ] cadastrar veiculos para venda
-- [ ] login
+- [ ] responsividade
 - [ ] conectar sqlite com instancia externa (turso)
+- [ ] login
+- [ ] cadastrar veiculos para venda
 - [ ] backoffice de mensagens (ver e deletar)
 - [ ] backoffice de veículos a venda (ver e deletar)
 
