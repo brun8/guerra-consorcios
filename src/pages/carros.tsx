@@ -24,7 +24,9 @@ export default function CarsPage() {
             </div>
           </TabsContent>
           <TabsContent value="market">
-            <SaleList type="carros" />
+            <div className="max-w-5xl mx-auto">
+              <SaleList type="carros" />
+            </div>
           </TabsContent>
         </Tabs>
       </div>
