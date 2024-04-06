@@ -14,6 +14,7 @@ export const vehicleRouter = createTRPCRouter({
       fuel: z.string().min(1),
       email: z.string().email().min(1),
       price: z.string().min(1),
+      type: z.enum(["carros", "motos", "caminhoes"])
     }))
     .mutation(({ ctx, input }) => {
       return ctx.db.vehicleSale.create({
@@ -23,6 +24,7 @@ export const vehicleRouter = createTRPCRouter({
           fuel: input.fuel,
           price: input.price,
           email: input.email,
+          type: input.type,
         }
       })
     }),

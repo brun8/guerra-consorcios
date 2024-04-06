@@ -191,7 +191,7 @@ export function VehicleSearch({ type }: VehicleSearchProps) {
       {result &&
         <>
           <VehicleCard vehicle={result} />
-          <SellVehicleSheet vehicle={result} />
+          <SellVehicleSheet vehicle={result} type={type} />
         </>
       }
     </div >

@@ -1,7 +1,7 @@
 import { useRef, useState } from "react"
 import toast from "react-hot-toast"
 
-import type { VehicleResult } from "@/types/fipe"
+import type { VehicleResult, VehicleType } from "@/types/fipe"
 import { api } from "@/utils/api"
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet"
 import { Button } from "@/components/ui/button"
@@ -12,13 +12,14 @@ import { Spinner } from "@/components/spinner"
 
 type SellVehicleSheetProps = {
   vehicle: VehicleResult
+  type: VehicleType
 }
 
 const priceFormatter = new Intl.NumberFormat('pt-br', {
   style: "currency", currency: "BRL"
 })
 
-export function SellVehicleSheet({ vehicle }: SellVehicleSheetProps) {
+export function SellVehicleSheet({ vehicle, type }: SellVehicleSheetProps) {
   const [open, setOpen] = useState(false)
   const priceRef = useRef<HTMLInputElement>(null)
   const emailRef = useRef<HTMLInputElement>(null)
@@ -53,6 +54,7 @@ export function SellVehicleSheet({ vehicle }: SellVehicleSheetProps) {
       fuel: vehicle.Combustivel,
       model: vehicle.Modelo,
       year: vehicle.AnoModelo,
+      type: type
     })
 
   }

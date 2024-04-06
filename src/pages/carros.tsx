@@ -1,4 +1,5 @@
 import { Layout } from "@/components/layout";
+import { SaleList } from "@/components/sale-list";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { VehicleSearch } from "@/components/vehicle-search";
 
@@ -23,7 +24,7 @@ export default function CarsPage() {
             </div>
           </TabsContent>
           <TabsContent value="market">
-
+            <SaleList type="carros" />
           </TabsContent>
         </Tabs>
       </div>

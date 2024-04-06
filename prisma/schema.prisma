@@ -82,6 +82,7 @@ model ContactMessage {
 
 model VehicleSale {
     id    String @id @default(cuid())
+    type  String
     model String
     year  Int
     fuel  String
