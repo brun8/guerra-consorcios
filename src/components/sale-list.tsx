@@ -9,6 +9,8 @@ type SaleListProps = {
 export function SaleList({ type }: SaleListProps) {
   const { data: vehicles, isFetching } = api.vehicle.getAll.useQuery({ type })
 
+  const isEmpty = vehicles && vehicles.length === 0
+
   return (
     <div>
       <Table>
@@ -37,7 +39,7 @@ export function SaleList({ type }: SaleListProps) {
               </TableCell>
             </TableRow>
           }
-          {!isFetching && vehicles &&
+          {!isFetching && vehicles && !isEmpty &&
             vehicles.map((vehicle) => (
               <TableRow key={vehicle.id}>
                 <TableCell className="font-medium">{vehicle.model}</TableCell>
@@ -46,6 +48,11 @@ export function SaleList({ type }: SaleListProps) {
                 <TableCell className="text-right font-bold">{vehicle.price}</TableCell>
               </TableRow>
             ))
+          }
+          {!isFetching && isEmpty &&
+            <TableRow>
+              <TableCell className="font-medium text-neutral-300">Lista vazia.</TableCell>
+            </TableRow>
           }
         </TableBody>
       </Table>
