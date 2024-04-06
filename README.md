@@ -30,8 +30,9 @@ npm run dev
 - [x] buscar caminhoes
 - [x] responsividade
 - [x] conectar sqlite com instancia externa (turso)
-- [ ] cadastrar veiculos para venda
-- [ ] tabela com veiculos para venda
+- [x] cadastrar veiculos para venda
+- [x] tabela com veiculos para venda
+- [ ] logo na navbar
 
 se der tempo
 - [ ] login
