@@ -6,7 +6,7 @@ import { VehicleSearch } from "@/components/vehicle-search";
 
 export default function CarsPage() {
   return (
-    <Layout>
+    <Layout title="Carros">
       <div className="mt-8 flex justify-center pb-6">
         <Tabs defaultValue="search" className="w-full flex flex-col gap-4">
           <TabsList className="mx-auto">

@@ -1,4 +1,3 @@
-import Head from "next/head";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -13,11 +12,6 @@ import logo2 from "/public/images/Prancheta_2GUERRAGRUPO.png"
 export default function Home() {
   return (
     <>
-      <Head>
-        <title>Guerra consórcios</title>
-        <meta name="description" content="" />
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
       <Layout>
         <div className="min-h-[720px] bg-white text-neutral-900 pt-16">
           <div
