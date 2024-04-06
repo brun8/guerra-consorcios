@@ -7,7 +7,8 @@ import { fetchVehicleBrands, fetchVehicleModels, fetchVehicleValue, normalizeTyp
 import { Spinner } from "@/components/spinner";
 import { Button } from "@/components/ui/button";
 import { type BrandInfo, type BaseFipeResponse } from "@/types/fipe";
-import { VehicleCard } from "./vehicle-card";
+import { VehicleCard } from "@/components/vehicle-card";
+import { SellVehicleSheet } from "@/components/sell-vehicle-sheet";
 
 
 type VehicleSearchProps = {
@@ -188,9 +189,12 @@ export function VehicleSearch({ type }: VehicleSearchProps) {
       }
 
       {result &&
-        <VehicleCard vehicle={result} />
+        <>
+          <VehicleCard vehicle={result} />
+          <SellVehicleSheet vehicle={result} />
+        </>
       }
-    </div>
+    </div >
   )
 }
 
