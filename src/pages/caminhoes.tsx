@@ -6,7 +6,7 @@ import { VehicleSearch } from "@/components/vehicle-search";
 
 export default function TrucksPage() {
   return (
-    <Layout title="Caminhões">
+    <Layout>
       <div className="mt-8 flex justify-center pb-6">
         <Tabs defaultValue="search" className="w-full flex flex-col gap-4">
           <TabsList className="mx-auto">
@@ -24,7 +24,7 @@ export default function TrucksPage() {
             </div>
           </TabsContent>
           <TabsContent value="market">
-            <div className="max-w-5xl mx-auto">
+            <div className="max-w-5xl mx-auto w-[90%]">
               <SaleList type="caminhoes" />
             </div>
           </TabsContent>

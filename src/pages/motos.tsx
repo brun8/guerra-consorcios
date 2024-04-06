@@ -24,7 +24,7 @@ export default function BikesPage() {
             </div>
           </TabsContent>
           <TabsContent value="market">
-            <div className="max-w-5xl mx-auto">
+            <div className="max-w-5xl mx-auto w-[90%]">
               <SaleList type="motos" />
             </div>
           </TabsContent>
