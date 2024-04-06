@@ -14,8 +14,11 @@ export function Layout({ children, title }: LayoutProps) {
     <>
       <Head>
         <title>
-          Guerra consórcios
-          {title && ` - ${title}`}
+          {title ?
+            `Guerra consórcios - ${title}`
+            :
+            "Guerra consórcios"
+          }
         </title>
         <meta name="description" content="" />
         <link rel="icon" href="/favicon.ico" />
