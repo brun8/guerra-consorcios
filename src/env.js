@@ -7,8 +7,8 @@ export const env = createEnv({
    * isn't built with invalid env vars.
    */
   server: {
-    TURSO_DATABASE_URL: z.string(),
-    TURSO_AUTH_TOKEN: z.string(),
+    // TURSO_DATABASE_URL: z.string(),
+    // TURSO_AUTH_TOKEN: z.string(),
     DATABASE_URL: z
       .string()
       .refine(
@@ -51,8 +51,8 @@ export const env = createEnv({
     NODE_ENV: process.env.NODE_ENV,
     NEXTAUTH_SECRET: process.env.NEXTAUTH_SECRET,
     NEXTAUTH_URL: process.env.NEXTAUTH_URL,
-    TURSO_AUTH_TOKEN: process.env.TURSO_AUTH_TOKEN,
-    TURSO_DATABASE_URL: process.env.TURSO_DATABASE_URL,
+    // TURSO_AUTH_TOKEN: process.env.TURSO_AUTH_TOKEN,
+    // TURSO_DATABASE_URL: process.env.TURSO_DATABASE_URL,
     // DISCORD_CLIENT_ID: process.env.DISCORD_CLIENT_ID,
     // DISCORD_CLIENT_SECRET: process.env.DISCORD_CLIENT_SECRET,
   },

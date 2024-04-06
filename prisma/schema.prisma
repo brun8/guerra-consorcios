@@ -79,3 +79,13 @@ model ContactMessage {
     email   String
     message String
 }
+
+model VehicleSale {
+    id    String @id @default(cuid())
+    type  String
+    model String
+    year  Int
+    fuel  String
+    price String
+    email String
+}
