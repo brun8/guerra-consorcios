@@ -13,7 +13,7 @@ export default function Listings() {
     onError: () => toast.error("Erro ao remover listagem"),
     onSuccess: () => {
       toast.success("Listagem removida")
-      refetch()
+      void refetch()
     }
   })
 
