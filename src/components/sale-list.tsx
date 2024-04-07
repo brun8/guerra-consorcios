@@ -15,7 +15,9 @@ export function SaleList({ type }: SaleListProps) {
   const isEmpty = vehicles && vehicles.length === 0
 
   function copyToClipboard(text: string) {
-    navigator.clipboard.writeText(text).then(() => toast.success("Email copiado"))
+    navigator.clipboard.writeText(text)
+      .then(() => toast.success("Email copiado"))
+      .catch(() => toast.error("Erro ao copiar"))
   }
 
   return (
