@@ -1,19 +1,18 @@
-import { useState } from "react";
+import { useState, type ReactNode } from "react";
+import { useRouter } from "next/router";
+import Image from "next/image";
+import Link, { type LinkProps } from "next/link";
 import { Menu } from "lucide-react";
 
 import { Sheet, SheetTrigger, SheetContent } from "@/components/ui/sheet";
-import { Button } from "./ui/button";
-import Link, { type LinkProps } from "next/link";
-import { useRouter } from "next/router";
+import { ScrollArea } from "@/components/ui/scroll-area";
+import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
-import React from "react";
-import { ScrollArea } from "./ui/scroll-area";
+import logo from "/public/images/icon.png"
 
 
 export function MobileNavbar() {
   const [open, setOpen] = useState(false)
-
-  // TODO: criar lista de links em @/config/routes ou algo do gênero
 
   return (
     <Sheet open={open} onOpenChange={setOpen}>
@@ -29,7 +28,7 @@ export function MobileNavbar() {
           className="flex items-center"
           onOpenChange={setOpen}
         >
-          Logo
+          <Image src={logo} alt="Grupo Guerra" width={32} height={32} />
         </MobileLink>
         <ScrollArea className="my-4 h-[calc(100vh-8rem)] pb-10 pl-6">
           <div className="flex flex-col space-y-3">
@@ -67,7 +66,7 @@ export function MobileNavbar() {
 
 interface MobileLinkProps extends LinkProps {
   onOpenChange?: (open: boolean) => void
-  children: React.ReactNode
+  children: ReactNode
   className?: string
   href: string
 }
