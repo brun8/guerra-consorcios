@@ -1,13 +1,25 @@
 # processo seletivo guerra consórcios
 
+## variáveis de ambiente
+
+preencher dados no arquivo .env de acordo com .env.example
+
 ## instalar dependências
 
 ```bash
 pnpm i
 ```
-ou
 ```bash
 npm i
+```
+
+## criar banco de dados local
+
+```bash
+pnpm db:push
+```
+```bash
+npm run db:push
 ```
 
 ## rodar servidor local
@@ -29,7 +41,7 @@ npm run dev
 - [x] buscar motos
 - [x] buscar caminhoes
 - [x] responsividade
-- [x] conectar sqlite com instancia externa (turso)
+- [x] conectar com banco de dados externo (turso)
 - [x] cadastrar veiculos para venda
 - [x] tabela com veiculos para venda
 - [ ] logo na navbar
