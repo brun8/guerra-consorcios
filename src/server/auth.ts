@@ -7,9 +7,11 @@ import {
 } from "next-auth";
 import { type Adapter } from "next-auth/adapters";
 // import DiscordProvider from "next-auth/providers/discord";
+import GitHubProvider from "next-auth/providers/github"
 
 // import { env } from "@/env";
 import { db } from "@/server/db";
+import { env } from "@/env";
 
 /**
  * Module augmentation for `next-auth` types. Allows us to add custom properties to the `session`
@@ -22,14 +24,14 @@ declare module "next-auth" {
     user: DefaultSession["user"] & {
       id: string;
       // ...other properties
-      // role: UserRole;
+      role: string;
     };
   }
 
-  // interface User {
-  //   // ...other properties
-  //   // role: UserRole;
-  // }
+  interface User {
+    // ...other properties
+    role: "USER" | "ADMIN";
+  }
 }
 
 /**
@@ -44,11 +46,16 @@ export const authOptions: NextAuthOptions = {
       user: {
         ...session.user,
         id: user.id,
+        role: user.role
       },
     }),
   },
   adapter: PrismaAdapter(db) as Adapter,
   providers: [
+    GitHubProvider({
+      clientId: env.GITHUB_ID,
+      clientSecret: env.GITHUB_SECRET,
+    })
     // DiscordProvider({
     //   clientId: env.DISCORD_CLIENT_ID,
     //   clientSecret: env.DISCORD_CLIENT_SECRET,

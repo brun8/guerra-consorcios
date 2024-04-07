@@ -29,7 +29,7 @@ export const vehicleRouter = createTRPCRouter({
       })
     }),
 
-  getAll: publicProcedure
+  getAllFromType: publicProcedure
     .input(z.object({
       type: z.enum(["carros", "motos", "caminhoes"])
     }))
@@ -39,6 +39,11 @@ export const vehicleRouter = createTRPCRouter({
           type: input.type
         }
       })
+    }),
+
+  getAll: publicProcedure
+    .query(({ ctx }) => {
+      return ctx.db.vehicleSale.findMany({})
     })
 
 });

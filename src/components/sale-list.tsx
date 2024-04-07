@@ -2,7 +2,7 @@ import type { VehicleType } from "@/types/fipe"
 import { api } from "@/utils/api"
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table"
 import { Skeleton } from "@/components/ui/skeleton"
-import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "./ui/tooltip"
+import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/ui/tooltip"
 import { Button } from "./ui/button"
 import toast from "react-hot-toast"
 
@@ -10,7 +10,7 @@ type SaleListProps = {
   type: VehicleType
 }
 export function SaleList({ type }: SaleListProps) {
-  const { data: vehicles, isFetching } = api.vehicle.getAll.useQuery({ type })
+  const { data: vehicles, isFetching } = api.vehicle.getAllFromType.useQuery({ type })
 
   const isEmpty = vehicles && vehicles.length === 0
 
@@ -60,9 +60,9 @@ export function SaleList({ type }: SaleListProps) {
                   <TooltipProvider>
                     <Tooltip delayDuration={50}>
                       <TooltipTrigger>
-                        <Button variant="ghost" onClick={() => copyToClipboard(vehicle.email)}>
+                        <div onClick={() => copyToClipboard(vehicle.email)}>
                           {vehicle.email}
-                        </Button>
+                        </div>
                       </TooltipTrigger>
                       <TooltipContent>
                         Copiar
