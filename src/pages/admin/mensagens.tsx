@@ -36,9 +36,6 @@ export default function Messages() {
                 <TableCell>
                   <Skeleton className="h-4 w-full" />
                 </TableCell>
-                <TableCell className="text-right">
-                  <Skeleton className="h-4 w-full" />
-                </TableCell>
               </TableRow>
             }
             {!isFetching && messages && !isEmpty &&
@@ -52,11 +49,6 @@ export default function Messages() {
                   </TableCell>
                   <TableCell>
                     {message.message}
-                  </TableCell>
-                  <TableCell className="text-right">
-                    <Button variant="outline">
-                      Ler
-                    </Button>
                   </TableCell>
                 </TableRow>
               ))
