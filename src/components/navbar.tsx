@@ -11,7 +11,7 @@ export function Navbar() {
       <div className="h-full flex items-center xl:max-w-5xl lg:max-w-xl mx-auto">
         <div className="flex-1 pl-4">
           <Link href="/">
-            <Image src={logo} alt="Grupo Guerra" width={40} height={40} />
+            <Image src={logo} alt="Grupo Guerra" width={40} height={40} priority />
           </Link>
         </div>
         <div className="flex gap-16 font-semibold leading-6 text-sm items-center">
