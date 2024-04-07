@@ -44,12 +44,12 @@ npm run dev
 - [x] conectar com banco de dados externo (turso)
 - [x] cadastrar veiculos para venda
 - [x] tabela com veiculos para venda
-- [ ] logo na navbar
+- [x] logo na navbar
 
 se der tempo
-- [ ] login
-- [ ] backoffice de veículos a venda (ver e deletar)
-- [ ] backoffice de mensagens (ver e deletar)
+- [x] login
+- [x] backoffice de veículos a venda
+- [x] backoffice de mensagens
 - [ ] footer
 - [ ] light mode
 - [ ] usar react query pra cache das requisições da tabela fipe
