@@ -8,7 +8,14 @@ import { api } from "@/utils/api";
 
 
 export default function Listings() {
-  const { data: vehicles, isFetching } = api.vehicle.getAll.useQuery()
+  const { data: vehicles, isFetching, refetch } = api.vehicle.getAll.useQuery()
+  const { mutate, isPending } = api.vehicle.delete.useMutation({
+    onError: () => toast.error("Erro ao remover listagem"),
+    onSuccess: () => {
+      toast.success("Listagem removida")
+      refetch()
+    }
+  })
 
   const isEmpty = vehicles && vehicles.length === 0
 
@@ -18,8 +25,8 @@ export default function Listings() {
       .catch(() => toast.error("Erro ao copiar"))
   }
 
-  function deleteListing() {
-    toast.error("infelizmente não deu tempo de implementar")
+  function deleteListing(id: string) {
+    mutate({ id })
   }
 
   return (
@@ -81,7 +88,7 @@ export default function Listings() {
                   <TableCell>{vehicle.fuel}</TableCell>
                   <TableCell>{vehicle.price}</TableCell>
                   <TableCell className="font-bold">
-                    <Button variant="destructive" onClick={deleteListing}>
+                    <Button variant="destructive" onClick={() => deleteListing(vehicle.id)} disabled={isPending}>
                       Remover
                     </Button>
                   </TableCell>

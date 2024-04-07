@@ -41,6 +41,18 @@ export const vehicleRouter = createTRPCRouter({
       })
     }),
 
+  delete: publicProcedure
+    .input(z.object({
+      id: z.string().min(1),
+    }))
+    .mutation(({ ctx, input }) => {
+      return ctx.db.vehicleSale.delete({
+        where: {
+          id: input.id
+        }
+      })
+    }),
+
   getAll: publicProcedure
     .query(({ ctx }) => {
       return ctx.db.vehicleSale.findMany({})
