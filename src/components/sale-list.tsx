@@ -3,7 +3,6 @@ import { api } from "@/utils/api"
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table"
 import { Skeleton } from "@/components/ui/skeleton"
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/ui/tooltip"
-import { Button } from "./ui/button"
 import toast from "react-hot-toast"
 
 type SaleListProps = {
