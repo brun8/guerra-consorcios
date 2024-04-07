@@ -19,7 +19,10 @@ export function ContactForm() {
   const emailRef = useRef<HTMLInputElement>(null)
   const messageRef = useRef<HTMLTextAreaElement>(null)
 
-  const { mutate, isPending } = api.contact.create.useMutation();
+  const { mutate, isPending } = api.contact.create.useMutation({
+    onSuccess: () => toast.success("Mensagem enviada"),
+    onError: () => toast.error("Erro ao enviar mensagem")
+  });
 
   function onMessageSend(e: SyntheticEvent) {
     e.preventDefault()
@@ -37,9 +40,8 @@ export function ContactForm() {
         email: res.data.email,
         message: res.data.message,
       })
-      toast.success("mensagem enviada")
     } else {
-      toast.error("erro")
+      toast.error("Erro ao enviar mensagem")
     }
   }
 
